@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CursoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,17 +13,13 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('cursos', function () {
-    return "Bienvenido a la pagina de cursos";
-});
-
-Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
-    return $categoria? "Bienvenido al curso: $curso, de la categoria $categoria" :  "Bienvenido al curso: $curso";
-});
-
 Route::get('/', HomeController::class); 
+Route::get('cursos', [CursoController::class, 'index']);
+Route::get('cursos/create', [CursoController::class, 'create']);
+Route::get('cursos/{curso}', [CursoController::class, 'show']);
+
+
