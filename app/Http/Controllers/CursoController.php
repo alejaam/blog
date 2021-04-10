@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 class CursoController extends Controller
 {
     public function index(){
-        return "Bienvenido a la pagina principal de cursos";
+        return view('cursos.index');
     }
 
     public function create(){
-        return "Bienvenido, aqui podras crear tus cursos";
-
+        return view('cursos.create');
     }
 
     public function show($curso){
-        return "Bienvenido al curso: $curso";
+        // return view('cursos.show', compact('curso'));  Cuando sea una variable podemos usar compact, debe concidir el nombre del parametro
+        return view('cursos.show', ['curso' => $curso ]);
+
     }
 }
