@@ -22,14 +22,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        Schema::create('courses', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_course');
-            $table->string('author');
-            $table->string('calification');
-            $table->string('category');
-            $table->timestamps();
-        });
     }
 
     /**
